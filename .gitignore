@@ -1,0 +1,13 @@
+/*
+!.gitignore
+!.zshrc
+
+!/.config
+/.config/*
+
+# NeoVim
+!/.config/nvim
+/.config/nvim/plugin
+
+# Kitty
+!/.config/kitty
