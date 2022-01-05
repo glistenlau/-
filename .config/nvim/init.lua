@@ -50,22 +50,18 @@ vim.cmd [[colorscheme tokyonight]]
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp
                                                                      .protocol
                                                                      .make_client_capabilities())
--- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
--- require('lspconfig')['<YOUR_LSP_SERVER>'].setup {
---  capabilities = capabilities
--- }
---
 
+local sumneko_root = string.sub(vim.fn.getenv('SUMNEKO_PATH'), 1, -5)
 -- Setup lua lsp
-local sumneko_binary_path =
-    "/usr/local/Cellar/lua-language-server/2.5.6/bin/lua-language-server"
-local sumneko_root_path = "/usr/local/Cellar/lua-language-server/2.5.6/libexec"
+local sumneko_binary_path = sumneko_root .. "/bin/lua-language-server"
+local sumneko_root_path = sumneko_root .. "/libexec"
 
 local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 
 require'lspconfig'.sumneko_lua.setup {
+    capabilities = capabilities,
     cmd = {sumneko_binary_path, "-E", sumneko_root_path .. "/main.lua"},
     settings = {
         Lua = {
@@ -89,9 +85,8 @@ require'lspconfig'.sumneko_lua.setup {
     }
 }
 
-local nvim_lsp = require 'lspconfig'
-
 local opts = {
+    capabilities = capabilities,
     tools = { -- rust-tools options
         autoSetHints = true,
         hover_with_actions = true,
