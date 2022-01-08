@@ -81,7 +81,10 @@ return require('packer').startup(function()
         'simrat39/symbols-outline.nvim',
         config = function() require 'symbols-outline-config' end
     }
-    use "Pocco81/AutoSave.nvim"
+    use {
+        "Pocco81/AutoSave.nvim",
+        config = function() require('autosave').setup {} end
+    }
 
     use {
         'lewis6991/gitsigns.nvim',
@@ -100,4 +103,5 @@ return require('packer').startup(function()
             }
         end
     }
+    use 'mfussenegger/nvim-jdtls'
 end)

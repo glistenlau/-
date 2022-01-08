@@ -1,7 +1,7 @@
 -- ~/.config/nvim/init.lua
 require('plugins')
 vim.g.mapleader = ' '
-vim.opt.autowrite = true
+vim.opt.autowriteall = true
 vim.opt.termguicolors = true
 vim.wo.number = true
 
@@ -115,5 +115,3 @@ local opts = {
 }
 
 require('rust-tools').setup(opts)
-
-vim.g.autosave_state = true
