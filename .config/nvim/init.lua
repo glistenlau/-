@@ -1,9 +1,13 @@
 -- ~/.config/nvim/init.lua
 require('plugins')
+
+vim.o.foldlevelstart = 99
+vim.o.autowriteall = true
+vim.o.termguicolors = true
 vim.g.mapleader = ' '
-vim.opt.autowriteall = true
-vim.opt.termguicolors = true
 vim.wo.number = true
+vim.wo.foldmethod = 'expr'
+vim.wo.foldexpr = 'nvim_treesitter#foldexpr()'
 
 -- Setup nvim-cmp.
 local cmp = require 'cmp'
