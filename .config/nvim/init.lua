@@ -89,6 +89,8 @@ require'lspconfig'.sumneko_lua.setup {
     }
 }
 
+require'lspconfig'.pyright.setup {}
+
 local opts = {
     capabilities = capabilities,
     tools = { -- rust-tools options
