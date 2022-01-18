@@ -52,5 +52,7 @@ local wk = require('which-key')
 
 wk.register({
     ['[b'] = {'<cmd>BufferLineCycleNext<CR>', 'Next Buffer'},
-    ['b]'] = {'<cmd>BufferLineCyclePrev<CR>', 'Previous Buffer'}
+    ['b]'] = {'<cmd>BufferLineCyclePrev<CR>', 'Previous Buffer'},
+    ['bp'] = {'<cmd>BufferLinePick<CR>', 'Pick A Buffer'},
+    ['bc'] = {'<cmd>BufferLinePickClose<CR>', 'Close A Buffer'}
 }, {prefix = "<leader>"})
